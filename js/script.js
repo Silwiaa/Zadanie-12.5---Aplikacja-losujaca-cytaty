@@ -8,6 +8,14 @@ $(function() {
     function getQuote() {
         $getJSON(quoteUrl, createTweet);
     }
+    
+    // SET getQuote FUNCTION WHEN WEB LOADED
+    $(document).ready(function() {
+        getQuote();
+    $('.trigger').click(function() {
+        getQuote();        
+        })
+    });
 
     // createTweet FUNCTION
     function createTweet(input) {
