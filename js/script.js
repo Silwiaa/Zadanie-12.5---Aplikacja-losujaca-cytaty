@@ -1,20 +1,21 @@
-$(function() {
-    
+$(function () {
     // VARIABLE tweetLink AND quoteuRL
-    var tweetLink = "https://twitter.com/intent/tweet?text=",
+    var prefix = "https://cors-anywhere.herokuapp.com/",
+        tweetLink = "https://twitter.com/intent/tweet?text=",
         quoteUrl = "https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1";
 
     // getQuote FUNCTION
     function getQuote() {
-        $getJSON(quoteUrl, createTweet);
+        $.getJSON(prefix + quoteUrl, createTweet);
+        $.ajaxSetup({ cache: false });
     }
     
     // SET getQuote FUNCTION WHEN WEB LOADED
-    $(document).ready(function() {
+    $(document).ready(function () {
         getQuote();
-    $('.trigger').click(function() {
+    $('.trigger').click(function () {
         getQuote();        
-        })
+        });
     });
 
     // createTweet FUNCTION
@@ -23,7 +24,7 @@ $(function() {
             quoteText = $(input.content).text().trim(),
             quoteAuthor = data.title;
 
-        if(!quoteAuthor.lenght) {
+        if (!quoteAuthor.lenght) {
             quoteAuthor = "Unknown author";
         }
 
