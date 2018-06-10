@@ -20,7 +20,7 @@ $(function () {
 
     // createTweet FUNCTION
     function createTweet(input) {
-        var data = input(0),
+        var data = input[0],
             quoteText = $(input.content).text().trim(),
             quoteAuthor = data.title;
 
