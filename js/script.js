@@ -25,7 +25,7 @@ $(function () {
             quoteAuthor = data.title;
 
         if (!quoteAuthor.lenght) {
-            quoteAuthor = "Unknown author";
+            quoteAuthor = " Unknown author";
         }
 
         var tweetText = "Quote of the day - " + quoteText + " Author: " + quoteAuthor;
